@@ -4,22 +4,37 @@ import {
 import {
   BsFacebook, BsApple, BsGoogle, BsFillPlayCircleFill, 
 } from 'react-icons/bs';
+import { useNavigate } from 'react-router-dom';
+import { useForm, SubmitHandler } from 'react-hook-form';
 import Logo from '../../assets/riot_logo_login.png';
 import ImageLogin from '../../assets/login_image.png';
 import { InputLogin } from '../../components/Form/InputLogin';
 import { IconLogin } from '../../components/Form/IconLogin';
 
+interface Inputs {
+  text: string;
+  password: string;
+}
+
 export function Login() {
+  const navigate = useNavigate();
+  
+  const { register, handleSubmit } = useForm<Inputs>();
+  const onSubmit : SubmitHandler<Inputs> = () => {
+    navigate('/home');
+  };
+  
   return (
     <Flex>
-      <Flex>
         <Flex
+          as='form'
           w={475}
           h='100vh'
           justify={'flex-start'}
           align={'center'}
           flexDirection={'column'}
           bg='gray.50'
+          onSubmit={handleSubmit(onSubmit)}
         >
           <Image src={Logo} mt={16} />
 
@@ -32,8 +47,8 @@ export function Login() {
           </Heading >
 
           <Stack spacing={25} mt={75}>
-            <InputLogin title='username' type='text'/>
-            <InputLogin title='password' type='password'/>
+            <InputLogin title='username' type='text' {...register('text')}/>
+            <InputLogin title='password' type='password' {...register('text')}/>
           </Stack>
           
           <Flex mt={5}>
@@ -47,6 +62,7 @@ export function Login() {
           </Checkbox>
 
           <Button
+            type='submit'
             leftIcon={<BsFillPlayCircleFill color='black'/> }
             w={150}
             h={'63px'}
@@ -71,7 +87,6 @@ export function Login() {
             Play
           </Button>
         </Flex>
-      </Flex>
 
       <Box>
         <Image src={ImageLogin} objectFit='cover' h='100vh' w={'100%'}/>

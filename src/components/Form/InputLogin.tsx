@@ -11,6 +11,7 @@ export function InputLogin({ title, type }: InputProps) {
   return (
     <Input
       placeholder={title}
+      required
       type={type}
       h={53}
       w={305}

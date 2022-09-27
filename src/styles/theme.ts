@@ -1,4 +1,5 @@
 import { extendTheme } from '@chakra-ui/react';
+// import bg from '../assets/background.png';
 
 export const theme = extendTheme({
   colors: {
