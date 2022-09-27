@@ -1,11 +1,9 @@
-import Header from './components/Header';
-import { Login } from './Pages/Login';
+import RouterApp from './routes';
 
 export default function App() {
   return (
     <>
-      <Login />
-      <Header />
+      <RouterApp />
     </>
   );
 }
