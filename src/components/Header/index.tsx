@@ -1,7 +1,7 @@
 import {
   Box, Divider, Flex, Image, 
 } from '@chakra-ui/react';
-import Logo from '../../assets/riot_logo.png';
+import Logo from '../../assets/Header/riot_logo.png';
 import { LinkHeader } from './Link';
 
 export default function Header() {

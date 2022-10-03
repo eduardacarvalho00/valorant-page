@@ -1,13 +1,13 @@
 import {
-  Flex, Box, Image, Heading, Stack, Checkbox, Button,
+  Flex, Box, Image, Heading, Stack, Checkbox, Button, useToast,
 } from '@chakra-ui/react';
 import {
   BsFacebook, BsApple, BsGoogle, BsFillPlayCircleFill, 
 } from 'react-icons/bs';
 import { useNavigate } from 'react-router-dom';
 import { useForm, SubmitHandler } from 'react-hook-form';
-import Logo from '../../assets/riot_logo_login.png';
-import ImageLogin from '../../assets/login_image.png';
+import Logo from '../../assets/Login/riot_logo_login.png';
+import ImageLogin from '../../assets/Login/login_image.png';
 import { InputLogin } from '../../components/Form/InputLogin';
 import { IconLogin } from '../../components/Form/IconLogin';
 
@@ -23,6 +23,7 @@ export function Login() {
   const onSubmit : SubmitHandler<Inputs> = () => {
     navigate('/home');
   };
+  const toast = useToast();
   
   return (
     <Flex>
@@ -83,6 +84,14 @@ export function Login() {
                 boxShadow: '1px 1px 26px 13px #ff4655',
               },
             }}
+            onClick={() =>
+              toast({
+                description: 'Login feito com sucesso',
+                status: 'success',
+                duration: 9000,
+                isClosable: true,
+              })
+            }
           >
             Play
           </Button>

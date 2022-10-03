@@ -1,16 +1,21 @@
 import {
-  Box, Flex, Text, Image, Button, Link, 
+  Box, Flex, Text, Image, Button, Link,
 } from '@chakra-ui/react';
 import Header from '../Header';
-import Video from '../../assets/video_home.mp4';
-import LogoValorant from '../../assets/svg_valorant.png';
+import Video from '../../assets/Header/video_home.mp4';
+import LogoValorant from '../../assets/Header/svg_valorant.png';
 
 export function Home() {
   return (
     <Box>
       <Header />
       <Flex bg='gray.900' flexDirection={'column'} justify={'center'} align={'center'}>
-        <video autoPlay muted>
+
+        <video 
+          autoPlay 
+          muted 
+          loop 
+        >
           <source src={Video} type="video/mp4" />
         </video>
 
