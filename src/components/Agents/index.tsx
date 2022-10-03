@@ -13,8 +13,9 @@ export function Agents() {
   return (
     <Flex
       as='section'
-      w={'100vw'}
+      w={'100%'}
       mt={'240px'}
+      mb={'115px'}
       h={'1520px'}
       align={'center'}
       flexDirection={'column'}
@@ -29,7 +30,6 @@ export function Agents() {
             muted 
             loop 
             style={{
-              
               width: '100%', 
             }}
           >
