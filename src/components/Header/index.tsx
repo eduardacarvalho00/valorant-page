@@ -20,10 +20,10 @@ export default function Header() {
         </Box>
         <Flex >
           <LinkHeader title='AGENTS' href='#agents'/>
-          <LinkHeader title='MAPS' href='#agents'/>
-          <LinkHeader title='CARDS' href='#agents'/>
-          <LinkHeader title='BUNDLES' href='#agents'/>
-          <LinkHeader title='WEAPONS' href='#agents'/>
+          <LinkHeader title='MAPS' href='#maps'/>
+          <LinkHeader title='CARDS' href='#cards'/>
+          <LinkHeader title='BUNDLES' href='#bundles'/>
+          <LinkHeader title='WEAPONS' href='#weapons'/>
         </Flex>
       </Flex>
       <Divider bg={'gray.300'}/>

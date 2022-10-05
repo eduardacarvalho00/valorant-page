@@ -7,7 +7,7 @@ import LogoValorant from '../../assets/Header/svg_valorant.png';
 
 export function Home() {
   return (
-    <Box>
+    <Box as='section'>
       <Header />
       <Flex bg='gray.900' flexDirection={'column'} justify={'center'} align={'center'}>
 

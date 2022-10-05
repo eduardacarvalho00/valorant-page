@@ -1,17 +1,28 @@
 import {
   Image, Flex, Text, Box, Tooltip, Button,
 } from '@chakra-ui/react';
+import {
+  Pagination, Navigation, Mousewheel, Keyboard,
+} from 'swiper';
+import { Swiper, SwiperSlide } from 'swiper/react';
 import AgentBg from '../../assets/Agents/agent-bg.mp4';
 import TitleAgent from '../../assets/Agents/title_agents.png';
-import ImageAgent from '../../assets/Agents/Rectangle8.png';
-import BgAgent from '../../assets/Agents/image 4.png';
-import Icon from '../../assets/Agents/image 11.png';
 import { CircleDetail } from './detailsAgents';
 import { Habilits } from './habilits';
+import { useAgents } from './useAgents';
+import 'swiper/css';
+import 'swiper/css/pagination';
+import 'swiper/css/navigation';
+import './swiper.css';
 
 export function Agents() {
+  const {
+    results,
+  } = useAgents();
+ 
   return (
     <Flex
+      id='agents'
       as='section'
       w={'100%'}
       mt={'240px'}
@@ -21,7 +32,7 @@ export function Agents() {
       flexDirection={'column'}
     >
      
-      <Image src={TitleAgent} mb={'100px'} />
+      <Image src={TitleAgent} mb={'100px'} fallbackSrc='true'/>
 
       <Flex justify={'center'} w={'100%'} >
 
@@ -35,52 +46,88 @@ export function Agents() {
           >
             <source src={AgentBg} type="video/mp4"/>
           </video>
-
-        <Flex position={'absolute'} w={1226} justify={'center'} >
-          <Box>
-            <CircleDetail top='320px' left='300px' bg='rgba(24, 52, 76, 0.5)'/>
-            <CircleDetail top='100px' bg='rgba(102, 55, 108, 0.5)'/>
-            <CircleDetail top='500px' left='220px' bg='rgba(177, 65, 76, 0.5)'/>
-            
-            <Image src={ImageAgent} position={'relative'}/>
-          </Box>
-         
-          <Flex
-            w={'434px'}
-            color='gray.50'
-            flexDirection={'column'}
-            align={'center'}
-          >
-            <Image src={BgAgent} position={'absolute'}/>
-           
-            <Text
-              fontWeight={'bold'}
-              fontSize={32}
-              textAlign={'center'}
-              mt={'150px'}
+          
+          <Flex position={'absolute'} w={1700}>
+            <Swiper
+              slidesPerView={1}
+              spaceBetween={30}
+              loop={true}
+              cssMode={true}
+              navigation={true}
+              pagination={true}
+              mousewheel={true}
+              keyboard={true}
+              modules={[Navigation, Pagination, Mousewheel, Keyboard]}
+              style={{
+                minWidth: '1200px',
+              }}
+              className="mySwiper"
             >
-              FADE
-            </Text> 
-            
-            <Tooltip
-              label='Initiators challenge angles by setting up their team to enter contested ground and push defenders away.'
-              aria-label='A tooltip'
-              hasArrow
-              p={2}
-            >
-              <Button bg='transparent' _hover={{ bg: 'transparent' }} >
-                <Image src={Icon} mt={10}/>
-              </Button>
-            </Tooltip>
+              {results.map((agent) => (
+                 
+                <Flex key={agent.displayName} align={'center'} flexDirection={'column'}>
+                  
+                  <SwiperSlide>
+                    <Flex justifyContent={'space-evenly'} maxW={'1800px'}>
 
-            <Text fontWeight={'regular'} fontSize={20} mt={144}>
-              Turkish bounty hunter Fade unleashes the power of raw nightmare to seize enemy secrets. Attuned with terror itself, she hunts down targets and reveals their deepest fears - before crushing them in the dark.
-            </Text>
+                      <Box>
+                        <CircleDetail top='320px' left='500px' bg={agent.backgroundGradientColors[1]}/>
+                        
+                        <Image src={agent.fullPortrait} position={'relative'} h={'850px'} />
+                      </Box>
+                
+                      <Flex
+                        color='gray.50'
+                        flexDirection={'column'}
+                        align={'center'}
+                      >
+                        <Image src={agent.background} h={880} fill={''} css={{ filter: 'opacity(10%)' }}/>
+                        
+                        <Tooltip
+                          label={agent.role.description}
+                          aria-label='A tooltip'
+                          hasArrow
+                          p={2}
+                        >
+                          <Button bg='transparent' _hover={{ bg: 'transparent' }} mt={10} position={'absolute'}>
+                            <Image src={agent.role.displayIcon} mt={10} w={'70px'}/>
+                          </Button>
+                        </Tooltip>
+
+                        <Text
+                          fontWeight={'bold'}
+                          fontSize={32}
+                          textAlign={'center'}
+                          mt={'150px'}
+                          position={'absolute'}
+                        >
+                          {agent.displayName}
+                        </Text> 
             
+                        <Text fontWeight={'regular'} fontSize={20} position={'absolute'} mt={390} textAlign={'justify'} w={350}>
+                          {agent.description}
+                        </Text>
+                        
+                        {/* <video controls>
+                          <source src={agent.voiceline.mediaList[0]}/>
+                        </video> */}
+                      
+                      </Flex>
+                    </Flex>
+                    
+                    <Habilits abilities={agent.abilities}/>
+                    
+                  </SwiperSlide>
+                </Flex>
+                
+              ))}
+              
+            </Swiper>
+
           </Flex>
-        </Flex>
+          
       </Flex>
-      <Habilits />
+      
     </Flex>
   );
 }

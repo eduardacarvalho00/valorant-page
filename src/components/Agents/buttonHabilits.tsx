@@ -1,5 +1,5 @@
 import {
-  Button, Image, Tab, TabPanel,
+  Button, Image, Tab,
 } from '@chakra-ui/react';
 
 interface ButtonProps {
@@ -21,19 +21,5 @@ export function ButtonHabilits({ icon }: ButtonProps) {
         <Image src={icon} />
       </Button>
     </Tab>
-  );
-}
-
-interface DescriptionProps{
-  text: string;
-}
-
-export function DescriptionHabilits({ text }: DescriptionProps) {
-  return (
-    <TabPanel textAlign={'justify'}>
-      <p>
-        {text}
-      </p>
-   </TabPanel>
   );
 }

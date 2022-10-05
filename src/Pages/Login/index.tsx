@@ -26,7 +26,7 @@ export function Login() {
   const toast = useToast();
   
   return (
-    <Flex>
+    <Flex as='section'>
         <Flex
           as='form'
           w={475}

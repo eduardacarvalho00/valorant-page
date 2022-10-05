@@ -2,8 +2,8 @@ import { Box } from '@chakra-ui/react';
 
 interface DetailsProps {
   top: string;
-  left?: string;
-  bg: string;
+  left: string;
+  bg?: string;
 }
 
 export function CircleDetail({ top, left, bg }: DetailsProps) {

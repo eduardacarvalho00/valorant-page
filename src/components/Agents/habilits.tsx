@@ -2,44 +2,43 @@ import {
   Flex, Image, TabList, TabPanels, Tabs,
 } from '@chakra-ui/react';
 import TitleHabilits from '../../assets/Agents/title_habilits.png';
-import Icon from '../../assets/Agents/image 11.png';
-import { ButtonHabilits, DescriptionHabilits } from './buttonHabilits';
+import { ButtonHabilits } from './buttonHabilits';
+import { DescriptionHabilits } from './descriptionHabilits';
 
-export function Habilits() {
+interface Props{
+  abilities:[{
+    displayName: string
+    description: string,
+    displayIcon: string,
+  }]
+}
+
+export function Habilits(props : Props) {
+  const { abilities } = props;
+
   return (
     <Flex
-      mt={40}
-      w={'860px'}
+      mt={30}
+      mb={10}
       h={'325px'}
       flexDir={'column'}
       align={'center'}
     >
       <Image src={TitleHabilits} textAlign={'center'} mb={10}/>
       
-        <Flex m={'40px'}> 
-        
+        <Flex m={'40px'}>
           <Tabs colorScheme='none' flexDirection={'column'} align={'center'}>
             <TabList>
-              <ButtonHabilits icon={Icon} />
-              <ButtonHabilits icon={Icon} />
-              <ButtonHabilits icon={Icon} />
-              <ButtonHabilits icon={Icon} />
+            {abilities.map((ability) => (
+              <ButtonHabilits key={ability.displayIcon} icon={ability.displayIcon} />
+            ))}
             </TabList>
 
             <TabPanels>
-              <DescriptionHabilits 
-                text='EQUIP a knot of raw fear. FIRE to throw. The knot drops down after a set time. RE-USE to drop the knot early. The knot ruptures on impact, holding nearby enemies in place. Held enemies are deafened, and decayed'
-              />
-              <DescriptionHabilits 
-                text='Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum aut a recusandae velit! Quibusdam ad fugit enim veniam delectus modi veritatis obcaecati error recusandae, doloribus reprehenderit voluptates libero voluptatibus maxime.'
-              />
-              
-              <DescriptionHabilits 
-                text='EQUIP a knot of raw fear. FIRE to throw. The knot drops down after a set time. RE-USE to drop the knot early. The knot ruptures on impact, holding nearby enemies in place. Held enemies are deafened, and decayed'
-              />
-              <DescriptionHabilits 
-                text='Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum aut a recusandae velit! Quibusdam ad fugit enim veniam delectus modi veritatis obcaecati error recusandae, doloribus reprehenderit voluptates libero voluptatibus maxime.'
-              />
+              {abilities.map((ability) => (
+                <DescriptionHabilits key={ability.displayName} displayName={ability.displayName} description={ability.description}/>
+              ))}
+             
             </TabPanels>
             
           </Tabs>

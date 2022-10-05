@@ -1,5 +1,4 @@
 import { extendTheme } from '@chakra-ui/react';
-// import bg from '../assets/background.png';
 
 export const theme = extendTheme({
   colors: {
@@ -28,7 +27,7 @@ export const theme = extendTheme({
     global: {
       'html::-webkit-scrollbar': {
         bg: 'blackAlpha 300',
-        w: '1',
+        w: '2',
       },
       'html::-webkit-scrollbar-thumb': {
         background: 'red.700',
@@ -37,6 +36,7 @@ export const theme = extendTheme({
       body: {
         bg: 'gray.100',
         color: 'gray.900',
+        
       },
     },
   },
