@@ -2,7 +2,10 @@ import { useEffect, useState } from 'react';
 import api from '../../services/api';
 
 interface PropsData{
- splash: string;
+  splash: string;
+  displayIcon?: string;
+  displayName: string;
+  listViewIcon: string;
 }
 
 export function useMaps() {
@@ -12,7 +15,6 @@ export function useMaps() {
       try {
         const { data } = await api.get('/maps');
         setResults(data.data);
-        console.log(results);
       } catch (error) {
         console.log('Error trying to search for this category!');
       }

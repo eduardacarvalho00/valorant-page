@@ -1,5 +1,4 @@
-div.swiper-button-prev,
-div.swiper-button-next {
-  color: white;
-  top: 50%;
+
+span.swiper-pagination-bullet{
+  background: #FF4655;
 }

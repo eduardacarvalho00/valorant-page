@@ -1,5 +1,6 @@
 div.swiper-button-prev,
 div.swiper-button-next {
   color: white;
-  top: 30%;
+  top: 50%;
+  width: 60px;
 }

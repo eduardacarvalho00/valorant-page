@@ -6,6 +6,7 @@ export const theme = extendTheme({
       900: '#000000',
       800: '#111111',
       700: '#212121',
+      500: '#A7A7A7',
       300: '#BBBBBB',
       200: '#D9D9D9', 
       100: '#ECE8E1',
@@ -36,7 +37,9 @@ export const theme = extendTheme({
       body: {
         bg: 'gray.100',
         color: 'gray.900',
-        
+      },
+      '*': {
+        scrollBehavior: 'smooth',
       },
     },
   },

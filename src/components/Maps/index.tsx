@@ -2,21 +2,22 @@ import {
   Pagination, Navigation, Mousewheel, Keyboard,
 } from 'swiper';
 import {
-  Box, Flex, Image, Text, 
+  Box, Flex, Heading, Image, Text, 
 } from '@chakra-ui/react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import mapsTitle from '../../assets/Maps/maps_title.png';
 import 'swiper/css/pagination';
 import 'swiper/css/navigation';
-import './swiper.css';
+import 'swiper/css';
 import { useMaps } from './useMaps';
 
 export function Maps() {
   const {
     results,
-  } = useMaps();
+  } = useMaps(); 
   return (
     <Flex
+      id='maps'
       as='section'
       w={'100%'}
       mb={'115px'}
@@ -35,6 +36,7 @@ export function Maps() {
         </Box>
        
         <Box maxW={'800px'}>
+        
           <Swiper
               slidesPerView={1}
               spaceBetween={30}
@@ -45,18 +47,19 @@ export function Maps() {
               mousewheel={true}
               keyboard={true}
               modules={[Navigation, Pagination, Mousewheel, Keyboard]}
-              className="mySwiper"
             >
-              {results.map((results) => (
-                <>
-                  <SwiperSlide>
-                    <Image src={results.splash}/>  
-                  </SwiperSlide>
-                </>
+              {results.map((maps) => (
+                <SwiperSlide key={maps.displayName}>
+                  <Heading textAlign={'center'} color='gray.50'>
+                    {maps.displayName}
+                  </Heading>
+                  <Image src={maps.splash}/>
+                </SwiperSlide>
               ))}
               
             </Swiper>
         </Box>
+        
       </Flex>
       
     </Flex>

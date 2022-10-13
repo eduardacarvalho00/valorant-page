@@ -61,7 +61,6 @@ export function Agents() {
               style={{
                 minWidth: '1200px',
               }}
-              className="mySwiper"
             >
               {results.map((agent) => (
                  

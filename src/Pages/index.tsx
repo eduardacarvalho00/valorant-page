@@ -1,4 +1,5 @@
 import { Agents } from '../components/Agents';
+import { Cards } from '../components/Cards';
 import { Home } from '../components/Home';
 import { Maps } from '../components/Maps';
 
@@ -8,6 +9,7 @@ export function Pages() {
       <Home />
       <Agents />
       <Maps />
+      <Cards />
     </>
   );
 }
