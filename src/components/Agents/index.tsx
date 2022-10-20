@@ -8,7 +8,7 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import AgentBg from '../../assets/Agents/agent-bg.mp4';
 import TitleAgent from '../../assets/Agents/title_agents.png';
 import { CircleDetail } from './detailsAgents';
-import { Habilits } from './habilits';
+import { Habilits } from './Habilits/habilits';
 import { useAgents } from './useAgents';
 import 'swiper/css';
 import 'swiper/css/pagination';

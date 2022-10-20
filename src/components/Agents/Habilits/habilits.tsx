@@ -1,9 +1,10 @@
 import {
   Flex, Image, TabList, TabPanels, Tabs,
 } from '@chakra-ui/react';
-import TitleHabilits from '../../assets/Agents/title_habilits.png';
+import TitleHabilits from '../../../assets/Agents/title_habilits.png';
 import { ButtonHabilits } from './buttonHabilits';
 import { DescriptionHabilits } from './descriptionHabilits';
+import bg from '../../../assets/background.png';
 
 interface Props{
   abilities:[{
@@ -23,6 +24,7 @@ export function Habilits(props : Props) {
       h={'325px'}
       flexDir={'column'}
       align={'center'}
+      backgroundImage={bg}
     >
       <Image src={TitleHabilits} textAlign={'center'} mb={10}/>
       

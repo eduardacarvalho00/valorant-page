@@ -7,7 +7,7 @@ interface DescriptionProps{
 
 export function DescriptionHabilits({ displayName, description }: DescriptionProps) {
   return (
-    <TabPanel textAlign={'justify'} w={900}>
+    <TabPanel textAlign={'justify'} w={900} fontSize={18}>
       <p>
         {displayName} : {description}
       </p>

@@ -1,4 +1,7 @@
-
 span.swiper-pagination-bullet{
   background: #FF4655;
+}
+
+.swiper-wrapper{
+  border-radius: 10px;
 }
