@@ -107,9 +107,9 @@ export function Agents() {
                           {agent.description}
                         </Text>
                         
-                        {/* <video controls>
+                         {/* <video controls>
                           <source src={agent.voiceline.mediaList[0]}/>
-                        </video> */}
+                        </video>  */}
                       
                       </Flex>
                     </Flex>

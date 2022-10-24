@@ -44,8 +44,9 @@ export function Cards() {
         <Button
           onClick={onOpen}
           colorScheme='red'
-          color={'black'}
+          color={'gray.50'}
           mt={'15px'}
+          size={'lg'}
         >
           Ver mais
         </Button>
@@ -56,12 +57,24 @@ export function Cards() {
             motionPreset='slideInBottom'
             scrollBehavior={scrollBehavior}
             size='full'
+            
           >
             <ModalOverlay />
             <ModalContent >
               
               <ModalCloseButton size={'lg'} />
-              <ModalBody>
+              <ModalBody 
+              css={{
+                '&::-webkit-scrollbar': {
+                  background: ' rgba(187, 187, 187, 0.8)',
+                  width: '10px',
+                },
+                '&::-webkit-scrollbar-thumb': {
+                  background: '#0F1923',
+                  borderRadius: '3px',
+                },
+              }}
+              >
                 <Flex mt={20} flexWrap={'wrap'}>
                     {results.map((cards) => (
                       
