@@ -35,7 +35,7 @@ export function Maps() {
           </Text>
         </Box>
        
-        <Box maxW={'800px'}>
+        <Box maxW={'800px'} position={'sticky'}>
           <Swiper
               id='teste'
               slidesPerView={1}
