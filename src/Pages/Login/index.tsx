@@ -1,5 +1,5 @@
 import {
-  Flex, Box, Image, Heading, Stack, Checkbox, Button, useToast,
+  Flex, Box, Image, Heading, Stack, Checkbox, Button, useToast, useBreakpointValue,
 } from '@chakra-ui/react';
 import {
   BsFacebook, BsApple, BsGoogle, BsFillPlayCircleFill, 
@@ -24,12 +24,17 @@ export function Login() {
     navigate('/home');
   };
   const toast = useToast();
+
+  const isWideVersion = useBreakpointValue({
+    base: false, 
+    lg: true,
+  });
   
   return (
     <Flex as='section'>
         <Flex
           as='form'
-          w={475}
+          w={['100%', 475, 700]}
           h='100vh'
           justify={'flex-start'}
           align={'center'}
@@ -58,7 +63,7 @@ export function Login() {
             <IconLogin icon={<BsApple />} bg='black' label='facebook' colorFont='white' />
           </Flex>
 
-          <Checkbox mr={190} mt={2} size='sm' colorScheme='red' >
+          <Checkbox mr={190} mt={2} size='sm' colorScheme='red' isInvalid >
             Stay signed in
           </Checkbox>
 
@@ -67,7 +72,7 @@ export function Login() {
             leftIcon={<BsFillPlayCircleFill color='black'/> }
             w={150}
             h={'63px'}
-            mt={60}
+            mt={[20, 60]}
             borderRadius={15}
             fontSize={26}
             bgGradient='linear(to-r,red.700,red.300)'
@@ -97,9 +102,11 @@ export function Login() {
           </Button>
         </Flex>
 
-      <Box>
-        <Image src={ImageLogin} objectFit='cover' h='100vh' w={'100%'}/>
-      </Box>
+      {isWideVersion && (
+        <Box w={'100%'}>
+          <Image src={ImageLogin} h='100vh' w={'100%'} backgroundSize='cover'/>
+        </Box>
+      )}
     </Flex>
   );
 }

@@ -6,15 +6,19 @@ interface PropsData{
   displayIcon: string;
   skins: [{
     displayName: string,
+    displayIcon: string,
+    
     chromas: [{
       displayName: string,
       displayIcon: string,
+    }],
+    
+    levels: [{
+      levelItem: string | null,
+      streamedVideo: string
     }]
   }];
-  levels: [{
-    levelItem: string | null,
-    streamedVideo: string
-  }]
+
 }
 
 export function useWeapons() {

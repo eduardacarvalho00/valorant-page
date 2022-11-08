@@ -10,15 +10,16 @@ export default function Header() {
       <Flex
         bg='gray.800'
         as='header' 
-        h={107}
+        h={[170, 107]}
         justifyContent={'space-around'}
         w={'100%'}
         align={'center'}
+        flexDir={['column', 'row']}
       >
-        <Box mr={300}>
+        <Box mr={[0, 300]}>
           <Image src={Logo}/>
         </Box>
-        <Flex >
+        <Flex flexWrap={['wrap', 'nowrap']} justify={'center'}>
           <LinkHeader title='AGENTS' href='#agents'/>
           <LinkHeader title='MAPS' href='#maps'/>
           <LinkHeader title='CARDS' href='#cards'/>

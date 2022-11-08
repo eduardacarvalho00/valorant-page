@@ -10,9 +10,8 @@ export function LinkHeader({ title, href }: LinkProps) {
     <Link
       href={href}
       color='gray.50'
-      px={[1,
-        3]}
-      fontSize={20}
+      px={[1, 3]}
+      fontSize={[16, 20]}
       fontWeight={'medium'}
       _hover={{
         color: 'red.700',

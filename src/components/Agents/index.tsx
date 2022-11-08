@@ -7,7 +7,6 @@ import {
 import { Swiper, SwiperSlide } from 'swiper/react';
 import AgentBg from '../../assets/Agents/agent-bg.mp4';
 import TitleAgent from '../../assets/Agents/title_agents.png';
-import { CircleDetail } from './detailsAgents';
 import { Habilits } from './Habilits/habilits';
 import { useAgents } from './useAgents';
 import 'swiper/css';
@@ -25,14 +24,14 @@ export function Agents() {
       id='agents'
       as='section'
       w={'100%'}
-      mt={'240px'}
+      mt={['100px', '240px']}
       mb={'115px'}
       h={'1520px'}
       align={'center'}
       flexDirection={'column'}
     >
      
-      <Image src={TitleAgent} mb={'100px'} fallbackSrc='true'/>
+      <Image src={TitleAgent} mb={'100px'} fallbackSrc='true' p={3}/>
 
       <Flex justify={'center'} w={'100%'} >
 
@@ -47,7 +46,7 @@ export function Agents() {
             <source src={AgentBg} type="video/mp4"/>
           </video>
           
-          <Flex position={'absolute'} w={1700}>
+          <Flex position={'absolute'} w={['200px', 1700]}>
             <Swiper
               slidesPerView={1}
               spaceBetween={30}
@@ -58,21 +57,16 @@ export function Agents() {
               mousewheel={true}
               keyboard={true}
               modules={[Navigation, Pagination, Mousewheel, Keyboard]}
-              style={{
-                minWidth: '1200px',
-              }}
             >
               {results.map((agent) => (
                  
                 <Flex key={agent.displayName} align={'center'} flexDirection={'column'}>
                   
                   <SwiperSlide>
-                    <Flex justifyContent={'space-evenly'} maxW={'1800px'}>
+                    <Flex justifyContent={'space-evenly'} maxW={['400px', '1800px']}>
 
                       <Box>
-                        <CircleDetail top='320px' left='500px' bg={agent.backgroundGradientColors[1]}/>
-                        
-                        <Image src={agent.fullPortrait} position={'relative'} h={'850px'} />
+                        <Image src={agent.fullPortrait} position={'relative'} h={['300px', '850px']} />
                       </Box>
                 
                       <Flex
