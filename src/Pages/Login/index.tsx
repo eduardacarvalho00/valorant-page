@@ -22,6 +22,12 @@ export function Login() {
   const { register, handleSubmit } = useForm<Inputs>();
   const onSubmit : SubmitHandler<Inputs> = () => {
     navigate('/home');
+    toast({
+      description: 'Login feito com sucesso',
+      status: 'success',
+      duration: 9000,
+      isClosable: true,
+    });
   };
   const toast = useToast();
 
@@ -89,14 +95,6 @@ export function Login() {
                 boxShadow: '1px 1px 26px 13px #ff4655',
               },
             }}
-            onClick={() =>
-              toast({
-                description: 'Login feito com sucesso',
-                status: 'success',
-                duration: 9000,
-                isClosable: true,
-              })
-            }
           >
             Play
           </Button>
