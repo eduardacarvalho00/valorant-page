@@ -4,7 +4,6 @@ import { Bundles } from '../components/Bundles';
 import { Cards } from '../components/Cards';
 import { Home } from '../components/Home';
 import { Maps } from '../components/Maps';
-import { Weapons } from '../components/Weapons';
 import './styles.css';
 
 export function Pages() {
@@ -21,7 +20,6 @@ export function Pages() {
       <Maps />
       <Cards />
       <Bundles />
-      <Weapons />
       <motion.div className="progress" style={{ scaleX }} />
     </>
   );

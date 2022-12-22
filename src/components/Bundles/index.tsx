@@ -13,6 +13,7 @@ export function Bundles() {
 
   return (
     <Flex
+      id='bundles'
       h={'800px'}
       as='section'
       justify={'center'}
@@ -20,7 +21,6 @@ export function Bundles() {
       backgroundRepeat={'no-repeat'}
     >
      <Tabs
-        isLazy
         colorScheme={'orange'}
         bg='gray.700'
         h={'750px'}

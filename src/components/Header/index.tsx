@@ -24,7 +24,6 @@ export default function Header() {
           <LinkHeader title='MAPS' href='#maps'/>
           <LinkHeader title='CARDS' href='#cards'/>
           <LinkHeader title='BUNDLES' href='#bundles'/>
-          <LinkHeader title='WEAPONS' href='#weapons'/>
         </Flex>
       </Flex>
       <Divider bg={'gray.300'}/>

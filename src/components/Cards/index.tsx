@@ -16,6 +16,7 @@ export function Cards() {
 
   return (
     <Box
+      id='cards'
       as='section'
       mt={60}
       w={'100%'}

@@ -1,5 +1,5 @@
 import {
-  Image, Flex, Text, Box, Tooltip, Button,
+  Image, Flex, Text, Box, Tooltip, Button, useBreakpointValue,
 } from '@chakra-ui/react';
 import {
   Pagination, Navigation, Mousewheel, Keyboard,
@@ -18,7 +18,10 @@ export function Agents() {
   const {
     results,
   } = useAgents();
- 
+  const isWideVersion = useBreakpointValue({
+    base: false, 
+    lg: true,
+  });
   return (
     <Flex
       id='agents'
@@ -26,7 +29,7 @@ export function Agents() {
       w={'100%'}
       mt={['100px', '240px']}
       mb={'115px'}
-      h={'1520px'}
+      h={['1920px', '1520px']}
       align={'center'}
       flexDirection={'column'}
     >
@@ -39,14 +42,18 @@ export function Agents() {
             autoPlay 
             muted 
             loop 
+            
             style={{
-              width: '100%', 
+              width: '100%',
+              height: '800px',
+              background: '#0F1923',
             }}
+
           >
             <source src={AgentBg} type="video/mp4"/>
           </video>
           
-          <Flex position={'absolute'} w={['200px', 1700]}>
+          <Flex position={'absolute'} w={['300px', 1700]}>
             <Swiper
               slidesPerView={1}
               spaceBetween={30}
@@ -60,7 +67,7 @@ export function Agents() {
             >
               {results.map((agent) => (
                  
-                <Flex key={agent.displayName} align={'center'} flexDirection={'column'}>
+                <Flex key={agent.displayName} align={'center'} flexDirection={['column']}>
                   
                   <SwiperSlide>
                     <Flex justifyContent={'space-evenly'} maxW={['400px', '1800px']}>
@@ -74,7 +81,9 @@ export function Agents() {
                         flexDirection={'column'}
                         align={'center'}
                       >
-                        <Image src={agent.background} h={880} fill={''} css={{ filter: 'opacity(10%)' }}/>
+                        {isWideVersion && (
+                          <Image src={agent.background} h={880} fill={''} css={{ filter: 'opacity(10%)' }}/>
+                        )}
                         
                         <Tooltip
                           label={agent.role.description}
@@ -82,7 +91,7 @@ export function Agents() {
                           hasArrow
                           p={2}
                         >
-                          <Button bg='transparent' _hover={{ bg: 'transparent' }} mt={10} position={'absolute'}>
+                          <Button bg='transparent' _hover={{ bg: 'transparent' }} mt={[0, 10]} position={'absolute'}>
                             <Image src={agent.role.displayIcon} mt={10} w={'70px'}/>
                           </Button>
                         </Tooltip>
@@ -91,13 +100,13 @@ export function Agents() {
                           fontWeight={'bold'}
                           fontSize={32}
                           textAlign={'center'}
-                          mt={'150px'}
+                          mt={[0, '150px']}
                           position={'absolute'}
                         >
                           {agent.displayName}
                         </Text> 
             
-                        <Text fontWeight={'regular'} fontSize={20} position={'absolute'} mt={390} textAlign={'justify'} w={350}>
+                        <Text fontWeight={'regular'} fontSize={20} position={'absolute'} mt={[0, 390]} textAlign={'justify'} w={350}>
                           {agent.description}
                         </Text>
                         
